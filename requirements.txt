@@ -1,0 +1,8 @@
+selenium
+webdriver-manager
+pytest-logging
+pytest-dependency
+pytest-instafail
+pytest-tldr
+pytest-cov
+allure-pytest
