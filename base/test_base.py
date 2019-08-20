@@ -5,11 +5,12 @@ Created on Aug 19, 2019
 @author: flba
 '''
 
+import pytest
+from selenium.webdriver.common.keys import Keys
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import pytest
 from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.firefox import GeckoDriverManager
 from resources.data import PAGE_URL
@@ -46,3 +47,6 @@ class TestBase():
 
     def edit_element(self, element, value):
         element.send_keys(value)
+
+    def press_enter_on_element(self, element):
+        element.send_keys(Keys.ENTER)
