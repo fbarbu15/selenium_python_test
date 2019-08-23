@@ -21,10 +21,18 @@ class TestBase():
 
     @pytest.fixture(scope="function", autouse=True)
     def _setup_teardown_test(self):
-        if BROWSER == "chrome":
+        if BROWSER == "local_chrome":
             self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-        elif BROWSER == "firefox":
+        elif BROWSER == "local_firefox":
             self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        elif BROWSER == "docker_chrome":
+            caps = {"browserName": "chrome"}
+            self.driver =  webdriver.Remote(command_executor="http://172.18.0.2:4444/wd/hub",
+                                            desired_capabilities=caps)
+        elif BROWSER == "docker_firefox":
+            caps = {"browserName": "firefox"}
+            self.driver =  webdriver.Remote(command_executor="http://172.18.0.2:4444/wd/hub",
+                                            desired_capabilities=caps)
         self.driver.maximize_window()
         self.driver.get(PAGE_URL)
         yield

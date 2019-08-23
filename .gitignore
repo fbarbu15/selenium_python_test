@@ -6,6 +6,8 @@ Include/
 LICENSE.txt
 Scripts/
 tcl/
+bin/
+include/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

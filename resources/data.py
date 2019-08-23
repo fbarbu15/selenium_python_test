@@ -4,5 +4,5 @@ Created on Aug 20, 2019
 @author: flba
 '''
 
-BROWSER = "chrome"
+BROWSER = "local_firefox"
 PAGE_URL = "https://www.skyscanner.net/"
